@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Load Balancing Example</title>
+</head>
+<body>
+  <h1>Welcome to this Load Balancer exemple</h1>
+  <p id="message">Connecting to backend...</p>
+
+  <script>
+    fetch("/") // Makes a GET request to the root route "/".
+      .then(response => response.text())
+      .then(data => {
+        // Updates the paragraph content with the backend message.
+        document.getElementById("message").innerText = data;
+      })
+      .catch(err => {
+        // If the request fails, displays an error message.
+        document.getElementById("message").innerText = "Failed to connect to backend.";
+      });
+  </script>
+</body>
+</html>

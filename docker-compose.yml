@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  backend1: # Definition of the first backend instance.
+    build:
+      context: ./backend
+    environment:
+      - PORT=3000 # Sets the listening port inside the container.
+      - INSTANCE_NAME=Backend-1 # Name of the instance for identification.
+
+  backend2: # Definition of the second backend instance.
+    build:
+      context: ./backend
+    environment:
+      - PORT=3000 # Sets the listening port inside the container.
+      - INSTANCE_NAME=Backend-2 # Name of the instance for identification.
+
+  backend3: # Definition of the third backend instance.
+    build:
+      context: ./backend
+    environment:
+      - PORT=3000 # Sets the listening port inside the container.
+      - INSTANCE_NAME=Backend-3 # Name of the instance for identification.
+
+  nginx: # Definition of the Nginx service.
+    build:
+      context: ./nginx
+    ports:
+      - "80:80" # Maps port 80 of the host to port 80 of the container.
+    depends_on: # The Nginx service depends on the backend services.
+      - backend1
+      - backend2
+      - backend3
