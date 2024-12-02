@@ -6,7 +6,7 @@ const INSTANCE_NAME = process.env.INSTANCE_NAME; // The name of the instance (us
 
 // Main route that responds with the instance name and its port.
 app.get("/", (req, res) => {
-  res.send(`You are connected to ${INSTANCE_NAME} on port: ${PORT}`);
+  res.send(`You are connected to ${INSTANCE_NAME}`);
 });
 
 
