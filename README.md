@@ -18,7 +18,6 @@ project/
 │   ├── Dockerfile
 ├── frontend/
 │   ├── index.html
-│   ├── Dockerfile
 ├── nginx/
 │   ├── nginx.conf
 │   ├── Dockerfile
